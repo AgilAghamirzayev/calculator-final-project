@@ -9,7 +9,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 
-@Entity
+@Entity(name = "users")
 @Table(name = "users", uniqueConstraints = {
         @UniqueConstraint(columnNames = "email")
 })
@@ -29,19 +29,10 @@ public class User {
     @Column(nullable = false)
     private String email;
 
-    private String imageUrl;
-
     @Column(nullable = false)
     private Boolean emailVerified = false;
 
     @JsonIgnore
     private String password;
-
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    private AuthProvider authProvider;
-
-    private String providerId;
-
 
 }
