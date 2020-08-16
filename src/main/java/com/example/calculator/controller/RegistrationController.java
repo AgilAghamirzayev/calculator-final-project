@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
 import javax.validation.Valid;
 import java.util.Optional;
 
@@ -38,6 +40,9 @@ public class RegistrationController {
         if (result.hasErrors()) return "registration";
 
         Optional<User> existing = userService.findByEmail(user.getEmail());
+
+
+
         if (existing.isPresent()) {
             result.rejectValue("email", null, "There is already an account registered with that email");
         }
@@ -51,4 +56,6 @@ public class RegistrationController {
 
         return "redirect:/login";
     }
+
+
 }

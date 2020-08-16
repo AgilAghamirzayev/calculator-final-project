@@ -14,59 +14,60 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.script.ScriptException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.HashMap;
 
 @Log4j2
 @Controller
-@RequestMapping("/operation")
+@RequestMapping("/operation_auth")
 @RequiredArgsConstructor
-public class OperationController extends MyAlgorithm {
+public class OperationAuthorizedController extends MyAlgorithm {
 
+    private final OperationService operationService;
     private final HashMap<String, Integer> counts;
 
     @GetMapping
-    public  String handle_get(HttpServletRequest request, Model model) {
-        model.addAttribute("operations", new Operation());
+    public String handle_get(HttpServletRequest request, Model model) {
+        model.addAttribute("operations_auth", new Operation());
         String session = request.getSession().toString();
         Integer count = counts.get(session);
         log.info("handle_get() count:  " + count);
         if (count == null) counts.put(request.getSession().toString(), 0);
-        else counts.put(session,count);
-        return "operation";
+        else counts.put(session, count);
+        return "operation_auth";
     }
 
     @PostMapping
     public String handle_post(
-                              HttpServletRequest request,
-                              @Valid @ModelAttribute("operations") Operation operation,
-                              Model model) {
+            HttpServletRequest request,
+            @Valid @ModelAttribute("operations_auth") Operation operation,
+            Model model) {
 
         String session = request.getSession().toString();
         Integer count = counts.get(session);
+        model.addAttribute("session",count);
         log.info("-----------------------------------------");
-        counts.forEach((k,v) -> System.out.println("Key: " + k + "  | Value: " + v));
+        counts.forEach((k, v) -> System.out.println("Key: " + k + "  | Value: " + v));
         log.info("-----------------------------------------");
-        log.info("Remote address:" + session);
+        log.info("Session:" + session);
         log.info("-----------------------------------------");
         log.info("Count: " + count);
-        counts.put(session, count+1);
+        counts.put(session, count + 1);
 
-        if (count >= 3) {
-            model.addAttribute("error", "You can't be able to run  more than 3 operations. Please Log in");
+        if (count >= 10) {
+            model.addAttribute("error", "You can't be able to run  more than 10 operations.\n " +
+                    "Please Share the website in your social network.");
         } else {
             try {
                 String result = eval(operation.getOperation());
                 log.info(result);
                 operation.setResult(result);
             } catch (ScriptException e) {
-                return "operation";
+                return "operation_auth";
             }
         }
 
-
-        return "operation";
+        return "operation_auth";
     }
 
 

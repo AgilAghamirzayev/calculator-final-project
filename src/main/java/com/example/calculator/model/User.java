@@ -36,6 +36,8 @@ public class User {
     @JsonIgnore
     private String password;
 
+    private Integer friend;
+
 //    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE,
 //                                                  CascadeType.PERSIST, CascadeType.REFRESH})
 //    private List<Operation> operations;
