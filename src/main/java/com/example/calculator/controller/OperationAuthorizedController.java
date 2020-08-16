@@ -45,7 +45,7 @@ public class OperationAuthorizedController extends MyAlgorithm {
 
         String session = request.getSession().toString();
         Integer count = counts.get(session);
-        model.addAttribute("session",count);
+        model.addAttribute("my_session",count);
         log.info("-----------------------------------------");
         counts.forEach((k, v) -> System.out.println("Key: " + k + "  | Value: " + v));
         log.info("-----------------------------------------");
