@@ -18,25 +18,6 @@ spring:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
 
-
-  mail:
-    default-encoding: UTF-8
-    host: smtp.gmail.com
-    username: ibatech2020@gmail.com
-    password: iba2020tech
-    port: 587
-    properties:
-      mail:
-        smtp:
-          port: 25
-          host: stmp.gmail.com
-          auth: true
-          starttls:
-            enable: true
-    protocol: smpt
-    test-connection: false
-
-
   security:
     oauth2:
       client:
