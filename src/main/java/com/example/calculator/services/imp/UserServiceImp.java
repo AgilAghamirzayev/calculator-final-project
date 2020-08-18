@@ -35,9 +35,7 @@ public class UserServiceImp implements UserService {
     @Override
     public void addOperation(String email, Operation operation) {
         Optional<User> users = userRepository.findByEmail(email);
-        User user = users.orElseThrow(() -> {
-            throw new UserNotFoundException("User not found");
-        });
+        User user = users.orElseThrow(RuntimeException::new);
         System.out.println("Email " + email);
         user.getOperations().add(operation);
         System.out.println(operation.getOperation());

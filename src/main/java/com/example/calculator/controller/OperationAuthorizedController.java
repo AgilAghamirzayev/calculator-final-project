@@ -14,10 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.security.Principal;
-import java.util.HashMap;
 
 
 @Log4j2
@@ -28,7 +26,6 @@ public class OperationAuthorizedController extends MyAlgorithm {
 
     private final UserService userService;
     private final SocialUserService socialUserService;
-    private final HashMap<String, Integer> counts;
 
 
     @GetMapping

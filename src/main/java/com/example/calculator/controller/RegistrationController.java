@@ -40,8 +40,6 @@ public class RegistrationController {
 
         Optional<User> existing = userService.findByEmail(user.getEmail());
 
-
-
         if (existing.isPresent()) {
             result.rejectValue("email", null, "There is already an account registered with that email");
         }
