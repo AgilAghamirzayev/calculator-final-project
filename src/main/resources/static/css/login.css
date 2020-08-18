@@ -1,19 +1,26 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-image:url(../img/wsa.jpg);
+    background-image: url(../img/wsa.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100%;  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
- .basic{
-     margin-top: 7%;
- }
+    width: 100%;
+}
 
- .btn {
+* {
+    box-sizing: border-box;
+}
+
+.login-section-form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.basic {
+    margin-top: 7%;
+}
+
+.btn {
     padding: 12px;
     border: none;
     border-radius: 4px;
@@ -22,106 +29,120 @@ body {
     display: inline-block;
     font-size: 17px;
     line-height: 20px;
-    text-decoration: none; 
+    text-decoration: none;
     width: 30%;
     margin-left: 35%;
 }
-  
-  .btn:hover {
+
+.btn:hover {
     opacity: 1;
-  }
-  
-  /* add appropriate colors to fb, twitter and google buttons */
-  .fb {
+}
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
     background-color: #3B5998;
     color: white;
-  }
-  
-  .github {
+}
+
+.github {
     background-color: #0d1318c2;
     color: white;
-  }
-  
-  .google {
+}
+
+.google {
     background-color: #dd4b39;
     color: white;
-  }
-  
- .form-group{
- width: 40%;
- margin-left:29%;
 }
- .btn-primary{
-      width: 15%;
-      margin-left: 42%;
-  }
-  #Help{
-   text-align: center;
+
+.form-group {
+    width: 40%;
+    margin-left: 29%;
+}
+
+.btn-primary {
+    width: 15%;
+    margin-left: 42%;
+}
+
+#Help {
+    text-align: center;
     font-size: large;
-  }
-  .or{
+}
+
+.or {
     text-align: center;
     padding: 15px;
-  }
-  .or .line {
+}
+
+.or .line {
     width: 12%;
     height: 0;
     border: 1px solid #c4c4c47e;
     margin: 3px;
-    display:inline-block;
- }
+    display: inline-block;
+}
 
 /* Responsive  */
 
- @media only screen and (max-width: 375px) {
- body{
-   background-image: none;
- }
- .btn{
-   width: 70%;
-   margin-left:50px;
- }
- .form-group{
-   width: 70%;
-   margin-left:48px;
- }
- .btn-primary{
-width: 60%;
-margin-left:70px;
- }
- #Help{
-  width: 50%;
-  margin-left:80px;
- }
- .or{
-  width: 50%;
-  margin-left:80px;
- }
+@media only screen and (max-width: 375px) {
+    body {
+        background-image: none;
+    }
+
+    .btn {
+        width: 70%;
+        margin-left: 50px;
+    }
+
+    .form-group {
+        width: 70%;
+        margin-left: 48px;
+    }
+
+    .btn-primary {
+        width: 60%;
+        margin-left: 70px;
+    }
+
+    #Help {
+        width: 50%;
+        margin-left: 80px;
+    }
+
+    .or {
+        width: 50%;
+        margin-left: 80px;
+    }
 }
- 
+
 
 @media only screen and (max-width: 414px) {
-  body{
-    background-image: none;
-  }
-  .btn{
-    width: 70%;
-    margin-left:50px;
-  }
-  .form-group{
-    width: 70%;
-    margin-left:48px;
-  }
-  .btn-primary{
- width: 60%;
- margin-left:70px;
-  }
-  #Help{
-   width: 50%;
-   margin-left:80px;
-  }
-  .or{
-   width: 50%;
-   margin-left:80px;
-  }
- }
+    body {
+        background-image: none;
+    }
+
+    .btn {
+        width: 70%;
+        margin-left: 50px;
+    }
+
+    .form-group {
+        width: 70%;
+        margin-left: 48px;
+    }
+
+    .btn-primary {
+        width: 60%;
+        margin-left: 70px;
+    }
+
+    #Help {
+        width: 50%;
+        margin-left: 80px;
+    }
+
+    .or {
+        width: 50%;
+        margin-left: 80px;
+    }
+}

@@ -2,14 +2,14 @@ package com.example.calculator.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Getter
 @Setter
-public class Operation {
+public class Operation implements Serializable {
 
     // Todo: add UUID
 

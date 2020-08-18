@@ -2,12 +2,13 @@ package com.example.calculator.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.istack.NotNull;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+import java.io.Serializable;
+import java.util.Collection;
 
 
 @Entity(name = "users")
@@ -16,7 +17,8 @@ import java.util.List;
 })
 @Getter
 @Setter
-public class User {
+@NoArgsConstructor
+public class User implements Serializable {
 
     // Todo: Id type change Long to UUID
 
@@ -30,15 +32,29 @@ public class User {
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
-    private Boolean emailVerified = false;
-
     @JsonIgnore
     private String password;
 
-    private Integer friend;
+    private String roles;
 
-//    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE,
-//                                                  CascadeType.PERSIST, CascadeType.REFRESH})
-//    private List<Operation> operations;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Collection<Operation> operations;
+
+    public User(String name, String email, String password, Collection<Operation> operations) {
+        this.name = name;
+        this.email = email;
+        this.password = name;
+        this.name = password;
+        this.operations = operations;
+        this.roles = "USER";
+    }
+
+    public String[] getRoles() {
+        return roles == null || roles.isEmpty() ? new String[]{}
+                : roles.split(":");
+    }
+
+    public void setRoles(String roles) {
+        this.roles = String.join(":", roles);
+    }
 }

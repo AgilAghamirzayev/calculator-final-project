@@ -7,6 +7,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap Link  -->
+    <!-- Bootstrap Link  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fontawesome.com/icons/github?style=brands" rel="stylesheet">
+    <!-- CSS link  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- Icons -->
@@ -21,27 +28,14 @@
 </head>
 
 <body>
-
+<h1><span>Registration</span></h1>
 <div class="basic container">
+
+
+
+
     <div class="row">
         <div class="col">
-            <a href="#" class="google btn"><i class="fa fa-google fa-fw">
-            </i> SignUp with Google+
-            </a>
-            <a href="#" class="fb btn">
-                <i class="fa fa-facebook fa-fw"></i> Signup with Facebook
-            </a>
-            <a href="#" class="github btn">
-                <i class="fa fa-github" aria-hidden="true"></i>
-                SignUp with GitHub
-            </a>
-
-            <br>
-            <div class="or">
-                <div class="line"></div>
-                <div style="display:inline-block;">OR</div>
-                <div class="line"></div>
-            </div>
             <form th:object="${user}" method="post">
 
                 <p class="error-message"
@@ -87,8 +81,8 @@
                 </label>
 
 
-                <button type="submit" class="btn btn-primary">Sign in</button>
-                <small id="login" class="form-text text-muted">Already have account? <a href="/login">Login</a>.</small>
+                <button type="submit" class="btn btn-primary">Sign in</button><br><br>
+                   Already have account?<a href="/login">Login</a>
             </form>
 
         </div>

@@ -18,7 +18,6 @@ public class OperationServiceImp implements OperationService {
 
     private final OperationRepository operationRepository;
 
-
     @Override
     public Operation save(Operation operation) {
         return operationRepository.save(operation);

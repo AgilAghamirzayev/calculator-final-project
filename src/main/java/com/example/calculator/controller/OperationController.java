@@ -2,7 +2,6 @@ package com.example.calculator.controller;
 
 import com.example.calculator.algorithm.MyAlgorithm;
 import com.example.calculator.model.Operation;
-import com.example.calculator.services.OperationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
@@ -12,9 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.script.ScriptException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.HashMap;
 
@@ -60,7 +57,8 @@ public class OperationController extends MyAlgorithm {
                 String result = eval(operation.getOperation());
                 log.info(result);
                 operation.setResult(result);
-            } catch (ScriptException e) {
+            } catch (Exception e) {
+                model.addAttribute("warning", "Please choose correct operations");
                 return "operation";
             }
         }

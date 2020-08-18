@@ -6,23 +6,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap Link  -->
+    <!-- Bootstrap Link  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fontawesome.com/icons/github?style=brands" rel="stylesheet">
+    <!-- CSS link  -->
+    <link rel="stylesheet" th:href="@{/css/login.css}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" th:href="@{/css/operation.css}">
+    <script th:src="@{/js/link.js}"></script>
     <title>Calculator</title>
 </head>
 
-
 <body>
+<div class="main-header-wrapper" >
+    <div class="main-header-profile-wrapper">
+        <div class="main-header-profile-credentials">
+            <span class="main-header-username" th:text="${name}"></span>
+            <div class="log-out-block">
+                <a class="btn btn-primary" th:href="@{/logout}">Log out</a>
+                <a class="btn btn-primary" th:href="@{/history}">History</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div th:if="${error}">
     <div class="alert alert-danger">
         <span th:text="${error}"></span>
     </div>
 </div>
-<div class="container-fluid">
-    <a th:href="@{logout}" type="button" class="logout btn btn-primary btn-lg">Log Out</a>
-</div>
+
 <form th:object="${operations_auth}" method="post">
     <div class="row">
         <div class="col">
@@ -34,10 +52,11 @@
     </div>
     <button type="submit" class="calculate btn btn-primary">Calculate</button>
 </form>
-<form>
+<br><br><br><br><br><br><br><br><br>
+<form >
 
     <div >
-        <!-- Sharingbutton Facebook -->
+        <!-- Sharing button Facebook -->
         <a class="resp-sharing-button__link"
            href="https://facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080" target="_blank" rel="noopener"
            aria-label="Share on Facebook">
