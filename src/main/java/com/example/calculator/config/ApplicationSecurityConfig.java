@@ -33,15 +33,15 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .deleteCookies("JSESSIONID")
                 .logoutSuccessUrl("/login");
 
-        http
-                .oauth2Login()
-                .loginPage("/login")
-                .defaultSuccessUrl("/operation_auth", true)
-                .permitAll();
-
-        http
-                .headers()
-                .frameOptions()
-                .disable();
+//        http
+//                .oauth2Login()
+//                .loginPage("/login")
+//                .defaultSuccessUrl("/operation_auth", true)
+//                .permitAll();
+//
+//        http
+//                .headers()
+//                .frameOptions()
+//                .disable();
     }
 }
