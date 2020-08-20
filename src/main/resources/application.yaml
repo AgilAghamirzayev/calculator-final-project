@@ -1,22 +1,16 @@
 server:
   port: ${PORT:8080}
-  servlet:
-    session:
-      tracking-modes: cookie
+
 spring:
   datasource:
-    url: ${JDBC_DATABASE_URL:jdbc:mysql://localhost:3306/spring-social?allowPublicKeyRetrieval=true&useSSL=false}
-    username: ${JDBC_DATABASE_USERNAME:root}
+    url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/ibatech}
+    username: ${JDBC_DATABASE_USERNAME:postgres}
     password: ${JDBC_DATABASE_PASSWORD:1999Aqil}
-    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialectv
+      ddl-auto: create
 
 
   security:
