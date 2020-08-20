@@ -1,4 +1,5 @@
 server:
+  port: ${PORT:5000}
   servlet:
     session:
       tracking-modes: cookie
